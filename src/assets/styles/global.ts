@@ -9,4 +9,17 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Saira', -apple-system, sans-serif;
   }
+
+  body {
+    background-color: #eee;
+  }
+
+  button,
+  input {
+    outline: 0;
+  }
+
+  button {
+    cursor: pointer;
+  }
 `;
