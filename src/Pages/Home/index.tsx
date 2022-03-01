@@ -33,7 +33,7 @@ export function Home() {
     setBoxes([]);
   }
 
-  function handleSubmit(event: SyntheticEvent) {
+  async function handleSubmit(event: SyntheticEvent) {
     event.preventDefault();
 
     const params = qs.stringify({
@@ -42,6 +42,13 @@ export function Home() {
       password: 'vikayel543',
       boxes: boxes.map((text) => ({ text })),
     });
+
+    const resp = await fetch(`https://api.imgflip.com/caption_image?${params}`);
+    const {
+      data: { url },
+    } = await resp.json();
+
+    console.log(url);
   }
 
   return (
