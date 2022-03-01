@@ -20,4 +20,20 @@ export const GlobalStyles = createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      background: #4395d8;
+    }
+  }
 `;
