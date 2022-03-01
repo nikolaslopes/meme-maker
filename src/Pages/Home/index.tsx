@@ -10,6 +10,7 @@ export function Home() {
   const [templates, setTemplates] = useState<ITemplates[]>([]);
   const [selectedTemplate, setSelectedTemplate] = useState<ITemplates | null>();
   const [boxes, setBoxes] = useState<Array<String>>([]);
+  const [generatedMeme, setGeneratedMeme] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -48,43 +49,50 @@ export function Home() {
       data: { url },
     } = await resp.json();
 
-    console.log(url);
+    setGeneratedMeme(url);
   }
 
   return (
     <Wrapper>
       <img src={Logo} alt="MemeMaker" />
       <Card>
-        <h2>Selecione um template</h2>
-
-        <Templates>
-          {templates.map((template) => (
-            <button
-              key={template.id}
-              type="button"
-              onClick={() => handleSelectTemplate(template)}
-              className={template.id === selectedTemplate?.id ? 'selected' : ''}
-            >
-              <img src={template.url} alt={template.name} />
-            </button>
-          ))}
-        </Templates>
-
-        {selectedTemplate && (
+        {generatedMeme && <img src={generatedMeme} alt="Generated Meme" />}
+        {!generatedMeme && (
           <>
-            <h2>Textos</h2>
-            <Form onSubmit={handleSubmit}>
-              {new Array(selectedTemplate.box_count)
-                .fill('')
-                .map((voidPosition, index) => (
-                  <input
-                    key={String(Math.random())}
-                    placeholder={`Texto #${index + 1}`}
-                    onChange={handleInputChange(index)}
-                  />
-                ))}
-              <Button type="submit">Make My Meme!</Button>
-            </Form>
+            <h2>Selecione um template</h2>
+
+            <Templates>
+              {templates.map((template) => (
+                <button
+                  key={template.id}
+                  type="button"
+                  onClick={() => handleSelectTemplate(template)}
+                  className={
+                    template.id === selectedTemplate?.id ? 'selected' : ''
+                  }
+                >
+                  <img src={template.url} alt={template.name} />
+                </button>
+              ))}
+            </Templates>
+
+            {selectedTemplate && (
+              <>
+                <h2>Textos</h2>
+                <Form onSubmit={handleSubmit}>
+                  {new Array(selectedTemplate.box_count)
+                    .fill('')
+                    .map((voidPosition, index) => (
+                      <input
+                        key={String(Math.random())}
+                        placeholder={`Texto #${index + 1}`}
+                        onChange={handleInputChange(index)}
+                      />
+                    ))}
+                  <Button type="submit">Make My Meme!</Button>
+                </Form>
+              </>
+            )}
           </>
         )}
       </Card>
