@@ -1,4 +1,5 @@
-import React, { useState, useEffect, ChangeEvent, SyntheticEvent } from 'react';
+import { useState, useEffect, ChangeEvent, SyntheticEvent } from 'react';
+import qs from 'qs';
 
 import { Wrapper, Card, Templates, Form, Button } from './styles';
 import Logo from '../../assets/images/logo.svg';
@@ -35,12 +36,12 @@ export function Home() {
   function handleSubmit(event: SyntheticEvent) {
     event.preventDefault();
 
-    const params = {
+    const params = qs.stringify({
       template_id: selectedTemplate?.id,
       username: 'vikayel543',
       password: 'vikayel543',
       boxes: boxes.map((text) => ({ text })),
-    };
+    });
   }
 
   return (
