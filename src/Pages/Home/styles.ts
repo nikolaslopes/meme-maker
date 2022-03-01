@@ -40,10 +40,16 @@ export const Templates = styled.div`
     border: 0;
     background-color: transparent;
     margin-right: 10px;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease-in-out;
 
     img {
       width: 53px;
       height: 53px;
+    }
+
+    &.selected {
+      border-color: #4395d8;
     }
   }
 `;

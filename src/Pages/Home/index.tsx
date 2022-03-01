@@ -7,6 +7,9 @@ import { ITemplates } from './types';
 
 export function Home() {
   const [templates, setTemplates] = useState<ITemplates[]>([]);
+  const [selectedTemplate, setSelectedTemplate] = useState<ITemplates>(
+    {} as ITemplates,
+  );
 
   useEffect(() => {
     (async () => {
@@ -26,9 +29,13 @@ export function Home() {
 
         <Templates>
           {templates.map((template) => (
-            <button key={template.id} type="button">
+            <button
+              key={template.id}
+              type="button"
+              onClick={() => setSelectedTemplate(template)}
+              className={template.id === selectedTemplate?.id ? 'selected' : ''}
+            >
               <img src={template.url} alt={template.name} />
-              {console.log(template.id)}
             </button>
           ))}
         </Templates>
