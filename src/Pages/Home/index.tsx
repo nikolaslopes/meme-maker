@@ -10,7 +10,7 @@ export function Home() {
   const [templates, setTemplates] = useState<ITemplates[]>([]);
   const [selectedTemplate, setSelectedTemplate] = useState<ITemplates | null>();
   const [boxes, setBoxes] = useState<Array<String>>([]);
-  const [generatedMeme, setGeneratedMeme] = useState(null);
+  const [generatedMeme, setGeneratedMeme] = useState<string | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -52,11 +52,24 @@ export function Home() {
     setGeneratedMeme(url);
   }
 
+  function handleReset() {
+    setSelectedTemplate(null);
+    setBoxes([]);
+    setGeneratedMeme(null);
+  }
+
   return (
     <Wrapper>
       <img src={Logo} alt="MemeMaker" />
       <Card>
-        {generatedMeme && <img src={generatedMeme} alt="Generated Meme" />}
+        {generatedMeme && (
+          <>
+            <img src={generatedMeme} alt="Generated Meme" />
+            <Button type="button" onClick={handleReset}>
+              Criar outro Meme!
+            </Button>
+          </>
+        )}
         {!generatedMeme && (
           <>
             <h2>Selecione um template</h2>
