@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent, SyntheticEvent } from 'react';
 
 import { Wrapper, Card, Templates, Form, Button } from './styles';
 import Logo from '../../assets/images/logo.svg';
@@ -8,8 +8,7 @@ import { ITemplates } from './types';
 export function Home() {
   const [templates, setTemplates] = useState<ITemplates[]>([]);
   const [selectedTemplate, setSelectedTemplate] = useState<ITemplates | null>();
-
-  console.log(selectedTemplate);
+  const [boxes, setBoxes] = useState<Array<String>>([]);
 
   useEffect(() => {
     (async () => {
@@ -20,6 +19,24 @@ export function Home() {
       setTemplates(memes);
     })();
   }, []);
+
+  const handleInputChange =
+    (index: number) => (event: ChangeEvent<HTMLInputElement>) => {
+      const newValues = boxes;
+      newValues[index] = event.target.value;
+      setBoxes(newValues);
+    };
+
+  function handleSelectTemplate(template: ITemplates) {
+    setSelectedTemplate(template);
+    setBoxes([]);
+  }
+
+  function handleSubmit(event: SyntheticEvent) {
+    event.preventDefault();
+
+    console.log(boxes);
+  }
 
   return (
     <Wrapper>
@@ -32,7 +49,7 @@ export function Home() {
             <button
               key={template.id}
               type="button"
-              onClick={() => setSelectedTemplate(template)}
+              onClick={() => handleSelectTemplate(template)}
               className={template.id === selectedTemplate?.id ? 'selected' : ''}
             >
               <img src={template.url} alt={template.name} />
@@ -43,11 +60,16 @@ export function Home() {
         {selectedTemplate && (
           <>
             <h2>Textos</h2>
-            <Form>
-              <input placeholder="Texto #1" />
-              <input placeholder="Texto #2" />
-              <input placeholder="Texto #3" />
-
+            <Form onSubmit={handleSubmit}>
+              {new Array(selectedTemplate.box_count)
+                .fill('')
+                .map((voidPosition, index) => (
+                  <input
+                    key={String(Math.random())}
+                    placeholder={`Texto #${index + 1}`}
+                    onChange={handleInputChange(index)}
+                  />
+                ))}
               <Button type="submit">Make My Meme!</Button>
             </Form>
           </>
