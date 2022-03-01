@@ -43,13 +43,13 @@ export const Templates = styled.div`
     border: 2px solid transparent;
     transition: border-color 0.2s ease-in-out;
 
+    &.selected {
+      border-color: #4395d8;
+    }
+
     img {
       width: 53px;
       height: 53px;
-    }
-
-    &.selected {
-      border-color: #4395d8;
     }
   }
 `;

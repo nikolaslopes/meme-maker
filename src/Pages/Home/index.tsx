@@ -7,9 +7,9 @@ import { ITemplates } from './types';
 
 export function Home() {
   const [templates, setTemplates] = useState<ITemplates[]>([]);
-  const [selectedTemplate, setSelectedTemplate] = useState<ITemplates>(
-    {} as ITemplates,
-  );
+  const [selectedTemplate, setSelectedTemplate] = useState<ITemplates | null>();
+
+  console.log(selectedTemplate);
 
   useEffect(() => {
     (async () => {
@@ -40,15 +40,18 @@ export function Home() {
           ))}
         </Templates>
 
-        <h2>Textos</h2>
+        {selectedTemplate && (
+          <>
+            <h2>Textos</h2>
+            <Form>
+              <input placeholder="Texto #1" />
+              <input placeholder="Texto #2" />
+              <input placeholder="Texto #3" />
 
-        <Form>
-          <input placeholder="Texto #1" />
-          <input placeholder="Texto #2" />
-          <input placeholder="Texto #3" />
-
-          <Button type="submit">Make My Meme!</Button>
-        </Form>
+              <Button type="submit">Make My Meme!</Button>
+            </Form>
+          </>
+        )}
       </Card>
     </Wrapper>
   );
