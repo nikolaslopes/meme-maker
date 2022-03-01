@@ -35,7 +35,12 @@ export function Home() {
   function handleSubmit(event: SyntheticEvent) {
     event.preventDefault();
 
-    console.log(boxes);
+    const params = {
+      template_id: selectedTemplate?.id,
+      username: 'vikayel543',
+      password: 'vikayel543',
+      boxes: boxes.map((text) => ({ text })),
+    };
   }
 
   return (
