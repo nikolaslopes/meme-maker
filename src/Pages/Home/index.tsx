@@ -1,5 +1,6 @@
 import { useState, useEffect, ChangeEvent, SyntheticEvent } from 'react';
 import qs from 'qs';
+import { toast } from 'react-toastify';
 
 import { Wrapper, Card, Templates, Form, Button } from './styles';
 import Logo from '../../assets/images/logo.svg';
@@ -48,6 +49,18 @@ export function Home() {
     const {
       data: { url },
     } = await resp.json();
+
+    if (resp.status === 200 && resp.ok === true) {
+      toast('🎉 Seu meme foi criado!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
 
     setGeneratedMeme(url);
   }
