@@ -26,23 +26,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "analyze": "source-map-explorer \"build/static/js/*.js\"",
-    "format": "prettier \"**/*.{css,html,js,jsx,json,less,md,scss,ts,tsx,yml}\" -c -w",
-    "icons": "pwa-asset-generator \"src/assets/images/icons/logo.svg\" \"public/static/images/icons\" -f -i \"public/index.html\" -m \"public/manifest.json\" -o false -t png -v \"static/images/icons\"",
-    "lint": "yarn lint:eslint && npm run lint:stylelint",
-    "lint:eslint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
-    "lint:stylelint": "stylelint \"**/*.{css,less,scss}\"",
-    "prebuild": "yarn format && npm run lint && npm run test:ci",
-    "serve": "serve build -s",
-    "serve:https": "serve build -s --ssl-cert \"src/config/ssl/cert.pem\" --ssl-key \"src/config/ssl/key.pem\"",
-    "setup": "yarn setup:husky && npm run setup:ssl",
-    "setup:husky": "husky install && husky add \".husky/pre-commit\" \"npx --no-install lint-staged\"",
-    "setup:ssl": "mkdirp \"src/config/ssl\" && mkcert -cert-file \"src/config/ssl/cert.pem\" -key-file \"src/config/ssl/key.pem\" localhost",
-    "test:ci": "cross-env CI=true yarn test --env=jsdom",
-    "test:coverage": "cross-env CI=true yarn test -- --coverage",
-    "test:debug": "react-scripts --inspect-brk test --runInBand"
+    "test": "react-scripts test"
   },
   "eslintConfig": {},
   "browserslist": [
