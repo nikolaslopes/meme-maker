@@ -1,14 +1,13 @@
-import { enableAllPlugins } from 'immer';
-import React, { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import './assets/scss/index.scss';
-import { App } from './components/App';
+import { enableAllPlugins } from 'immer'
+import React, { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { App } from './components/App'
 
-enableAllPlugins();
+enableAllPlugins()
 
-const root = createRoot(document.getElementById('root') as HTMLElement);
+const root = createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <StrictMode>
     <App />
   </StrictMode>
-);
+)
