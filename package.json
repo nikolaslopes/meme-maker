@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^14.2.0",
     "@types/jest": "^27.5.1",
     "@types/node": "^16.11.26",
+    "@types/qs": "^6.9.7",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.5",
     "@types/react-redux": "^7.1.24",
@@ -18,13 +19,6 @@
     "cross-env": "^7.0.3",
     "dexie": "^3.2.2",
     "dexie-react-hooks": "^1.1.1",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-compat": "^4.0.2",
-    "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-promise": "^6.0.0",
     "fake-indexeddb": "^3.1.7",
     "husky": "^8.0.1",
     "immer": "^9.0.14",
@@ -33,17 +27,21 @@
     "mkdirp": "^1.0.4",
     "prettier": "^2.6.2",
     "pwa-asset-generator": "^6.0.8",
+    "qs": "^6.11.0",
     "react": "^18.2.0",
+    "react-components": "^0.5.1",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^1.3.0",
     "react-hook-form": "^7.31.2",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.0.8",
     "redux-observable": "^2.0.0",
     "rxjs": "^7.5.5",
     "sass": "^1.52.1",
     "source-map-explorer": "^2.5.2",
+    "styled-components": "^5.3.5",
     "stylelint": "^14.8.5",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",
@@ -96,5 +94,8 @@
     "defaults ",
     "not IE 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@types/styled-components": "^5.1.25"
+  }
 }
