@@ -6,6 +6,8 @@ The **Meme Maker** is a web application that allows you to generate memes.
 
 This application was made with [Mateus Silva](https://www.youtube.com/c/MateusSilvaDev)
 
+🟢 See live: https://nikolas-lopes-mememaker.netlify.app/
+
 ### The application was built using:
 
 - React ⚛️
@@ -18,7 +20,7 @@ This application was made with [Mateus Silva](https://www.youtube.com/c/MateusSi
 
 - Download the **_zip_** or **_clone_** project
 - Open the terminal and **_execute_**: `cd meme-maker`
-- Open the terminal again and **_execute_**: `yarn` to install the dependencies
+- Open the terminal again and **_execute_**: `yarn` to ins stall the dependencies
 - Then, run in terminal and **_execute_** again: `yarn dev`
 - Open in the `Browser`: [http://localhost:3000](http://localhost:3000/)
 
