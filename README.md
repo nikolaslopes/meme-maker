@@ -4,8 +4,6 @@
 
 The **Meme Maker** is a web application that allows you to generate memes.
 
-This application was made with [Mateus Silva](https://www.youtube.com/c/MateusSilvaDev)
-
 🟢 See live: https://nikolas-lopes-mememaker.netlify.app/
 
 ### The application was built using:
@@ -36,3 +34,4 @@ This application was made with [Mateus Silva](https://www.youtube.com/c/MateusSi
 - LinkedIn: [nikolas-lopes](https://www.linkedin.com/in/nikolas-lopes-b06524209/)
 
 Thanks for your support (●'◡'●)
+
